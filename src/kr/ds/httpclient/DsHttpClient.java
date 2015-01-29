@@ -24,7 +24,7 @@ import android.util.Log;
  * @author Chodongsuk
  * @since 20150129
  */
-public class DsHttpClient<K> {
+public class DsHttpClient {
 	private final static String TAG = "Http";
 	/**
 	 * Write클래스 POST 전송
