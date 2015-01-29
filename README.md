@@ -1,8 +1,8 @@
-PlatFrom
+MyLib
 ========
 
 2015.01.29
-
+라이브러리
 
 Developed By
 ============
