@@ -13,26 +13,43 @@ import android.util.Log;
  * 네트워크 실시간 접속 상태
  * @author Chodongsuk
  * @since 20150129
+ * 
+ * <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ * 
+ * private BroadcastReceiver mNetworkReveiver;
+ * mNetworkReveiver = new DsNetworkStateReceiver(new DsNetworkStateReceiver.NetworkStateListener() {
+            @Override
+            public void onConnect() {
+                // connect
+            }
+            @Override
+            public void onDisConnect() {
+                // disconnect
+            }
+        });
+   registerReceiver(mNetworkReveiver,DsNetworkStateReceiver.NETWORK_INTENT_FILTER);
+        
+   unregisterReceiver(mNetworkReveiver);
  */
-public class DsNetworkStateReceiver extends BroadcastReceiver {
 
+public class DsNetworkStateReceiver extends BroadcastReceiver {
+	//android.net.conn.CONNECTIVITY_CHANGE
     public static final IntentFilter NETWORK_INTENT_FILTER = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
 
     private static final String TAG = DsNetworkStateReceiver.class.getSimpleName();
-
     private static boolean sBeforeNetworkContext = false; 
     private NetworkStateListener mNetworkStateListener;
-
     public DsNetworkStateReceiver() {
     }
 
     public DsNetworkStateReceiver(NetworkStateListener listener) {
-        this.mNetworkStateListener = listener;
+        mNetworkStateListener = listener;
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        final Bundle extra = intent.getExtras();
+        
+    	final Bundle extra = intent.getExtras();
         if (extra == null) {
             return;
         }
@@ -66,7 +83,6 @@ public class DsNetworkStateReceiver extends BroadcastReceiver {
 
     public interface NetworkStateListener {
         public void onConnect();
-
         public void onDisConnect();
     }
 }
