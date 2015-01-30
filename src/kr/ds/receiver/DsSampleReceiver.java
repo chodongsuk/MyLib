@@ -24,39 +24,42 @@ import android.os.Bundle;
 		
 	DsSampleReceiver.sendBroadcast(getApplicationContext(), "메세지");
  */
-public class DsSampleReceiver extends BroadcastReceiver{
+public class DsSampleReceiver extends BroadcastReceiver {
 	private final static String MESSAGE = "message";
 	private final static String ACTION = "kr.ds.samplereceiver";
-	public static final IntentFilter ACTION_INTENT_FILTER = new IntentFilter("kr.ds.samplereceiver");
-	
+	public static final IntentFilter ACTION_INTENT_FILTER = new IntentFilter(
+			"kr.ds.samplereceiver");
+
 	private SampleMessageListener mSampleMessageListener;
-	
+
 	public DsSampleReceiver() {
-    }
+	}
+
 	public DsSampleReceiver(SampleMessageListener listener) {
 		mSampleMessageListener = listener;
-    }
-	
+	}
+
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		// TODO Auto-generated method stub
 		final Bundle extra = intent.getExtras();
 		if (extra == null) {
-            return;
-        }
-		if(mSampleMessageListener == null) {
-            return;
-        }
-		
+			return;
+		}
+		if (mSampleMessageListener == null) {
+			return;
+		}
+
 		String message = extra.getString(MESSAGE);
 		mSampleMessageListener.OnMessage(message);
 	}
-	
-	public static void sendBroadcast(Context context, String message){
-		Intent intent = new Intent(ACTION);   
-		intent.putExtra(MESSAGE, message); 
-		context.sendBroadcast(intent);    
+
+	public static void sendBroadcast(Context context, String message) {
+		Intent intent = new Intent(ACTION);
+		intent.putExtra(MESSAGE, message);
+		context.sendBroadcast(intent);
 	}
+
 	public interface SampleMessageListener {
 		public void OnMessage(String string);
 	}
