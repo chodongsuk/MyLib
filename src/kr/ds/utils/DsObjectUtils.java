@@ -10,7 +10,7 @@ import java.util.Map;
  * @since 2015.02.02
  * 
  */
-public class ObjectUtils {
+public class DsObjectUtils {
 	public static boolean isEmpty(Object s) {
 		if (s == null) {
 			return true;
@@ -23,9 +23,6 @@ public class ObjectUtils {
 		}
 		if (s instanceof List) {
 			return ((List<?>) s).isEmpty();
-		}
-		if (s instanceof Object) {
-			return (((Object[]) s).length == 0);
 		}
 		return false;
 	}

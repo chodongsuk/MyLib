@@ -9,7 +9,7 @@ import android.util.Log;
  * @since 2015.02.02
  * 
  */
-public class DebugUtils {
+public class DsDebugUtils {
 
 	public static void Message(String str) {
 		Log.d("TAG", "[" + new Throwable().getStackTrace()[0].getFileName()

@@ -1,6 +1,6 @@
 package kr.ds.utils;
 
-public class ToastUtils {
+public class DsToastUtils {
 	
 	
 

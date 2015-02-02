@@ -25,7 +25,7 @@ import android.util.Log;
  * @since 20150129
  */
 public class DsHttpClient {
-	private final static String TAG = "Http";
+	private final static String TAG = DsHttpClient.class.getSimpleName();
 	/**
 	 * Write클래스 POST 전송
 	 * @param hashmap
@@ -87,7 +87,7 @@ public class DsHttpClient {
 	        String twoHyphens = "--";
 	        String boundary = "*****";
 	        
-			URL url = new URL("http://pctu1213.cafe24.com/app/food_pdx/2014-10-20-post_write.php");
+			URL url = new URL(httpurl);
 			HttpURLConnection http= (HttpURLConnection) url.openConnection();
 			
 			http.setDefaultUseCaches(false);

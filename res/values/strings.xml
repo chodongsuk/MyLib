@@ -1,5 +1,8 @@
 <resources>
 
     <string name="app_name">MyLib</string>
+    <string name="ds_faq_hint">입력하세요.</string>
+    <string name="ds_faq_success">확인</string>
+    <string name="ds_faq_cancel">취소</string>
 
 </resources>

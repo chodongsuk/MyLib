@@ -13,7 +13,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Display;
 
-public class ScreenUtils {
+public class DsScreenUtils {
 
 	public static int screenWidthPx = 0;
 
@@ -21,16 +21,16 @@ public class ScreenUtils {
 
 	public static float densityPx = 0;
 
-	private static ScreenUtils screenUtils = null;
+	private static DsScreenUtils screenUtils = null;
 
-	public ScreenUtils() {
+	public DsScreenUtils() {
 	}
 
-	public static ScreenUtils getInstance() {
+	public static DsScreenUtils getInstance() {
 		if (screenUtils == null) {
-			synchronized (ScreenUtils.class) {
+			synchronized (DsScreenUtils.class) {
 				if (screenUtils == null) {
-					screenUtils = new ScreenUtils();
+					screenUtils = new DsScreenUtils();
 				}
 			}
 		}
