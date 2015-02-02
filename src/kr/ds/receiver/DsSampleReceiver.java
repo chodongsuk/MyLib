@@ -49,7 +49,6 @@ public class DsSampleReceiver extends BroadcastReceiver {
 		if (mSampleMessageListener == null) {
 			return;
 		}
-
 		String message = extra.getString(MESSAGE);
 		mSampleMessageListener.OnMessage(message);
 	}
