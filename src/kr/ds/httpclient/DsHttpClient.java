@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -72,6 +73,35 @@ public class DsHttpClient {
 		}
 		return result;
 	}
+	public static String HttpGet(String httpurl, String encoding) {
+		String result = "";
+		try {			
+			
+	        
+			URL url = new URL(httpurl);
+			HttpURLConnection http= (HttpURLConnection) url.openConnection();
+			
+			http.setDefaultUseCaches(false);
+			http.setDoInput(true);
+			http.setDoOutput(true);
+			http.setRequestMethod("GET");
+			http.setRequestProperty("Connection", "Keep-Alive");
+			
+	        InputStreamReader tmp = new InputStreamReader(http.getInputStream(), encoding);
+			BufferedReader reader = new BufferedReader(tmp);
+			StringBuilder builder = new StringBuilder();
+			String str;
+			while ((str = reader.readLine()) != null) {
+				builder.append(str + "\n");
+			}
+			result = builder.toString();
+			Log.i(TAG, result + "");
+		} catch (Exception e) {
+			Log.d("my", e.toString());
+		}
+		return result;
+	}
+	
 	/**
 	 * POST전송
 	 * @param para_hashmap
@@ -107,7 +137,7 @@ public class DsHttpClient {
 				dos.writeBytes(twoHyphens + boundary + lineEnd);
 	            dos.writeBytes("Content-Disposition: form-data; name=\""+e.getKey()+"\""+ lineEnd);
 	            dos.writeBytes(lineEnd);
-	            dos.writeBytes((String) e.getValue());
+	            dos.writeBytes(URLEncoder.encode((String) e.getValue(),encoding));
 	            dos.writeBytes(lineEnd);
 			}
 	        dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
@@ -163,7 +193,7 @@ public class DsHttpClient {
 				dos.writeBytes(twoHyphens + boundary + lineEnd);
 	            dos.writeBytes("Content-Disposition: form-data; name=\""+e.getKey()+"\""+ lineEnd);
 	            dos.writeBytes(lineEnd);
-	            dos.writeBytes((String) e.getValue());
+	            dos.writeBytes(URLEncoder.encode((String) e.getValue(),encoding));
 	            dos.writeBytes(lineEnd);
 			}
 			

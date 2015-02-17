@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ds_white">#ffffff</color>
+    <color name="ds_black">#000000</color>
+    <color name="ds_transparent">#a0000000</color>
+    <color name="ds_transparentf">#a0ffffff</color>
+    <color name="ds_line">#e1e1e1</color>
+
+</resources>

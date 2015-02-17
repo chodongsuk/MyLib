@@ -1,8 +1,9 @@
 <resources>
 
     <string name="app_name">MyLib</string>
-    <string name="ds_faq_hint">입력하세요.</string>
+    <string name="ds_faq_hint">광고 관련 및 문의사항을 입력해 주세요.\n(이메일 및 전화 남겨주시면 연락 드리겠습니다.)</string>
     <string name="ds_faq_success">확인</string>
     <string name="ds_faq_cancel">취소</string>
-
+    
+    
 </resources>

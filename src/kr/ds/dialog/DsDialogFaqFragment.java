@@ -3,9 +3,12 @@ package kr.ds.dialog;
 import kr.ds.mylib.R;
 import kr.ds.utils.DsDebugUtils;
 import kr.ds.utils.DsObjectUtils;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -47,7 +50,7 @@ public class DsDialogFaqFragment extends DialogFragment {
 	}
 	public DsDialogFaqFragment setView(Context context){
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-		mView = inflater.inflate(R.layout.dialog_faq, null);
+		mView = inflater.inflate(R.layout.ds_dialog_faq, null);
 		return this;
 	}
 	@Override
@@ -65,10 +68,9 @@ public class DsDialogFaqFragment extends DialogFragment {
 	@Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 		AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
-		
-		final EditText mEditTextFaq = (EditText)mView.findViewById(R.id.editText_faq);
-		Button mButtonFaqSuccess = (Button)mView.findViewById(R.id.button_faq_success);
-		Button mButtonFaqCancel = (Button)mView.findViewById(R.id.button_faq_cancel);
+		final EditText mEditTextFaq = (EditText)mView.findViewById(R.id.ds_editText_faq);
+		Button mButtonFaqSuccess = (Button)mView.findViewById(R.id.ds_button_faq_success);
+		Button mButtonFaqCancel = (Button)mView.findViewById(R.id.ds_button_faq_cancel);
 		
 		mButtonFaqSuccess.setOnClickListener(new OnClickListener() {
 			
